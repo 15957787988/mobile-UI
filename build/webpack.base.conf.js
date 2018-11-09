@@ -81,6 +81,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('examples'),
+      'mintUi': path.join(__dirname, '..'),
+      'src': path.join(__dirname, '../src')
     }
   },
   module: {

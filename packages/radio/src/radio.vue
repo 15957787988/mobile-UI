@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import XCell from 'mint-ui/packages/cell/index.js';
+import XCell from 'mint-ui/packages/cell/index.js'
 if (process.env.NODE_ENV === 'component') {
-  require('mint-ui/packages/cell/style.css');
+  require('mint-ui/packages/cell/style.css')
 }
 /**
  * mt-radio
@@ -49,23 +49,23 @@ export default {
     },
     value: String
   },
-  data() {
+  data () {
     return {
       currentValue: this.value
-    };
+    }
   },
   watch: {
-    value(val) {
-      this.currentValue = val;
+    value (val) {
+      this.currentValue = val
     },
-    currentValue(val) {
-      this.$emit('input', val);
+    currentValue (val) {
+      this.$emit('input', val)
     }
   },
   components: {
     XCell
   }
-};
+}
 </script>
 
 <style lang="css">

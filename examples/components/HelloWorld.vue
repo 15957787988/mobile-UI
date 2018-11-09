@@ -9,87 +9,12 @@
       is-link
       value="带链接">
     </mt-cell>
+    <mt-spinner type="snake" color="red">></mt-spinner>
+    <mt-spinner :type="2" :size="14" color="#26a2ff"></mt-spinner>
     <transition name='fade'>
        <h2 class="transtss" v-if='isshow'>Essential Links</h2>
     </transition>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <mt-picker :slots="slots" @change="onValuesChange" ></mt-picker>
   </div>
 </template>
 
@@ -100,22 +25,44 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      isshow: false
+      isshow: false,
+      slots: [
+        {
+          flex: 1,
+          values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
+          className: 'slot1',
+          textAlign: 'center'
+        }
+        // {
+        //   divider: true,
+        //   content: '-',
+        //   className: 'slot2'
+        // },
+        // {
+        //   flex: 1,
+        //   values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
+        //   className: 'slot3',
+        //   textAlign: 'left'
+        // }
+      ]
     }
   },
   methods: {
-    openToast () {
-      // this.$toast('提示信息')
+    onValuesChange (picker, values) {
+      // console.log(picker.slotValueChange, values)
+      console.log(values[0], values[1])
+      // console.log(picker.setSlotValue(1, values[0]))
+      // picker.setSlotValue(1, values[0])
     }
   },
   mounted () {
-    this.$toast({
-      message: '提示',
-      position: 'top',
-      duration: 3000,
-      iconClass: 'icon icon-success',
-      backgroundImage: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539087798521&di=997fc66bd14d1959524f68faf9ea622a&imgtype=0&src=http%3A%2F%2Fpic167.nipic.com%2Ffile%2F20180605%2F26996938_232219888038_2.jpg'
-    })
+    // this.$toast({
+    //   message: '提示',
+    //   // position: 'top',
+    //   duration: 3000,
+    //   iconClass: 'icon icon-success',
+    //   backgroundImage: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539087798521&di=997fc66bd14d1959524f68faf9ea622a&imgtype=0&src=http%3A%2F%2Fpic167.nipic.com%2Ffile%2F20180605%2F26996938_232219888038_2.jpg'
+    // })
   }
 }
 </script>
